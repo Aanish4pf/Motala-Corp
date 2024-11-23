@@ -229,13 +229,14 @@ nav.scrolled {
     }
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 768px) {
     .hero-content {
-        padding-left: 2rem;
+        padding: 2rem;
+        text-align: center;
     }
-
+    
     .hero-content h1 {
-        font-size: 3.5rem;
+        font-size: 2.5rem;
     }
 }
 
