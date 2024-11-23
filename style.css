@@ -82,13 +82,14 @@ nav.scrolled {
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    padding-top: 80px;
+    padding-top: 0;
     position: relative;
     color: var(--light-color);
+    display: flex;
+    align-items: center;
 }
 
 .hero-content {
-    max-width: 800px;
     text-align: left;
     margin: 0 auto;
     padding: 2rem;
@@ -97,6 +98,9 @@ nav.scrolled {
     opacity: 0;
     transform: translateX(-100px);
     animation: slideInLeft 1s ease forwards;
+    max-width: 1200px; 
+    width: 100%;
+    padding-left: 4rem; 
 }
 
 .hero-content h1 {
@@ -114,27 +118,6 @@ nav.scrolled {
     color: rgba(255, 255, 255, 0.9);
     max-width: 500px;
     text-align: left;
-}
-
-.hero-content h1 {
-    font-size: 3.5rem;
-    margin-bottom: 1rem;
-}
-
-.hero-content {
-    opacity: 0;
-    transform: translateX(-100px);
-    animation: slideInLeft 1s ease forwards;
-    text-align: left;
-    color: var(--light-color);
-    padding-left: 4rem;
-}
-
-.hero-content h1 {
-    font-size: 4rem;
-    line-height: 1.2;
-    margin-bottom: 1.5rem;
-    font-weight: 700;
 }
 
 .hero-container {
