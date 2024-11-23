@@ -98,6 +98,8 @@ function initAnimations() {
 // Event listeners
 window.addEventListener('scroll', initAnimations);
 window.addEventListener('load', initAnimations);
+window.addEventListener('scroll', revealSections);
+window.addEventListener('load', revealSections);
 
 // Optional: Refresh animations on window resize
 let resizeTimer;
@@ -105,3 +107,17 @@ window.addEventListener('resize', () => {
     clearTimeout(resizeTimer);
     resizeTimer = setTimeout(initAnimations, 250);
 });
+
+function revealSections() {
+    const titleContainers = document.querySelectorAll('.section-title-container');
+    const windowHeight = window.innerHeight;
+    const elementVisible = 150;
+
+    titleContainers.forEach(container => {
+        const elementTop = container.getBoundingClientRect().top;
+        
+        if (elementTop < windowHeight - elementVisible) {
+            container.classList.add('active');
+        }
+    });
+}
