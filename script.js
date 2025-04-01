@@ -149,7 +149,15 @@ function setupLightbox() {
     function openLightbox(imageSrc, title) {
         lightbox.style.display = 'flex';
         lightboxImg.src = imageSrc;
-        lightboxCaption.textContent = title;
+        
+        // Only show caption if not on mobile
+        if (window.innerWidth > 768) {
+            lightboxCaption.textContent = title;
+            lightboxCaption.style.display = 'block';
+        } else {
+            lightboxCaption.style.display = 'none';
+        }
+        
         document.body.style.overflow = 'hidden';
     }
     
@@ -191,6 +199,17 @@ function setupLightbox() {
         if (e.key === 'Escape' && lightbox.style.display === 'flex') {
             lightbox.style.display = 'none';
             document.body.style.overflow = 'auto';
+        }
+    });
+    
+    // Update lightbox behavior on window resize
+    window.addEventListener('resize', function() {
+        if (lightbox.style.display === 'flex') {
+            if (window.innerWidth <= 768) {
+                lightboxCaption.style.display = 'none';
+            } else {
+                lightboxCaption.style.display = 'block';
+            }
         }
     });
 }

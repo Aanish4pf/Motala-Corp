@@ -788,3 +788,13 @@ footer {
 .project-card img {
     cursor: pointer;
 }
+
+.view-image-link {
+    color: white;
+    text-decoration: underline;
+    transition: opacity 0.3s ease;
+}
+
+.view-image-link:hover {
+    opacity: 0.8;
+}
