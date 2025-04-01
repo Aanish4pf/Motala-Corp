@@ -247,6 +247,13 @@ nav.scrolled {
     }
 }
 
+/* Adjustments for hero background in mobile views */
+@media (max-width: 768px) {
+    .hero {
+        background-attachment: scroll; /* Change to scroll to fix mobile issues */
+    }
+}
+
 /* About Section */
 .about {
     background: var(--light-color);
