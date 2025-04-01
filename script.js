@@ -1,3 +1,17 @@
+function handleScrollEvents() {
+    reveal();
+    revealAbout();
+    revealSections();
+    handleNavbarScroll();
+}
+
+function initializeAll() {
+    initAnimations();
+    setupLightbox();
+    setupNavigation();
+    handleFormSubmission();
+}
+
 // Reveal animations on scroll
 function reveal() {
     const reveals = document.querySelectorAll('.reveal');
@@ -121,3 +135,65 @@ function revealSections() {
         }
     });
 }
+
+// Add these lines to your script.js file to setup full-screen image viewing
+function setupLightbox() {
+    const projectImages = document.querySelectorAll('.project-card img');
+    const viewLinks = document.querySelectorAll('.view-image-link');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxCaption = document.getElementById('lightbox-caption');
+    const closeLightbox = document.querySelector('.close-lightbox');
+    
+    // Function to open lightbox
+    function openLightbox(imageSrc, title) {
+        lightbox.style.display = 'flex';
+        lightboxImg.src = imageSrc;
+        lightboxCaption.textContent = title;
+        document.body.style.overflow = 'hidden';
+    }
+    
+    // Open lightbox when clicking on project images
+    projectImages.forEach(img => {
+        img.addEventListener('click', function() {
+            const projectTitle = this.closest('.project-card').querySelector('.project-info h3').textContent;
+            openLightbox(this.src, projectTitle);
+        });
+    });
+    
+    // Open lightbox when clicking on "View Image" links
+    viewLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const projectCard = this.closest('.project-card');
+            const img = projectCard.querySelector('img');
+            const projectTitle = projectCard.querySelector('.project-info h3').textContent;
+            openLightbox(img.src, projectTitle);
+        });
+    });
+    
+    // Close lightbox when clicking the close button
+    closeLightbox.addEventListener('click', function() {
+        lightbox.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    });
+    
+    // Close lightbox when clicking outside the image
+    lightbox.addEventListener('click', function(e) {
+        if (e.target === lightbox) {
+            lightbox.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+    });
+    
+    // Close lightbox when pressing Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && lightbox.style.display === 'flex') {
+            lightbox.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+    });
+}
+
+window.addEventListener('DOMContentLoaded', initializeAll);
+window.addEventListener('scroll', handleScrollEvents);

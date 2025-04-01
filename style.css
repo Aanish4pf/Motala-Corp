@@ -49,9 +49,13 @@ nav.scrolled {
 }
 
 .logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: var(--dark-color);
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    max-height: 50px; /* Adjust this value to control the logo size */
+    width: auto;
 }
 
 .nav-links {
@@ -76,18 +80,17 @@ nav.scrolled {
     cursor: pointer;
 }
 
-/* Hero Section */
 .hero {
     min-height: 100vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url('/api/placeholder/1920/1080');
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url('Precon.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    padding-top: 0;
-    position: relative;
-    color: var(--light-color);
     display: flex;
     align-items: center;
+    padding-top: 80px; /* Account for the fixed navbar */
+    position: relative;
+    color: var(--light-color);
 }
 
 .hero-content {
@@ -439,6 +442,15 @@ nav.scrolled {
     height: 250px;
     object-fit: cover;
     transition: transform 0.3s ease;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.project-card.reveal.active img {
+    opacity: 1;
+    transform: scale(1);
+    transition-delay: 0.2s; /* Slight delay after the card appears */
 }
 
 .project-card:hover img {
@@ -455,6 +467,11 @@ nav.scrolled {
     color: var(--light-color);
     transform: translateY(100%);
     transition: transform 0.3s ease;
+    text-align: center;
+}
+
+.project-info h3 {
+    margin-bottom: 0.5rem;
 }
 
 .project-card:hover .project-info {
@@ -703,4 +720,65 @@ footer {
 /* Update existing sections with new title styles */
 .services, .projects, .contact {
     padding: 6rem 0;
+}
+
+/* Lightbox Styles */
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 1100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.9);
+    align-items: center;
+    justify-content: center;
+}
+
+.lightbox-content {
+    display: block;
+    max-width: 90%;
+    max-height: 90vh;
+    margin: auto;
+    animation: zoom 0.3s ease;
+    object-fit: contain; /* This ensures the image maintains its aspect ratio */
+}
+
+@keyframes zoom {
+    from {transform: scale(0.8); opacity: 0;}
+    to {transform: scale(1); opacity: 1;}
+}
+
+.close-lightbox {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    z-index: 1101;
+}
+
+.close-lightbox:hover {
+    color: var(--primary-color);
+}
+
+#lightbox-caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 50px;
+}
+
+/* Make project images clickable */
+.project-card img {
+    cursor: pointer;
 }

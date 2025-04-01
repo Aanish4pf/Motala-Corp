@@ -12,7 +12,7 @@
     <nav>
         <div class="nav-container">
             <div class="logo">
-                <img src="path/to/your/logo.png" alt="MoBuild Logo" />
+                <img src="logo.jpg" alt="MoBuild Logo" />
             </div>
             <div class="nav-links">
                 <a href="#home">Home</a>
@@ -28,17 +28,17 @@
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>Building Your Vision</h1>
-            <p>Excellence in Construction Since 2024</p>
+    <!-- Hero Section -->
+<section id="home" class="hero">
+    <div class="hero-content">
+        <h1>Building Your Vision</h1>
+        <p>Excellence in Construction Since 2024</p>
+        <div class="hero-buttons">
             <a href="#contact" class="cta-button">Get Started</a>
             <a href="#projects" class="text-link">View Projects</a>
         </div>
-        <div class="hero-image">
-            <img src="hero-pic.webp" alt="Construction Site" class="construction-image">
-        </div>
-    </section>
+    </div>
+</section>
 
     <!-- About us Section -->
     <section id="about" class="about">
@@ -98,9 +98,9 @@
                     <p>Create beautiful outdoor spaces that last.</p>
                 </div>
                 <div class="service-card reveal">
-                    <i class="fas fa-warehouse"></i>
-                    <h3>Roofing</h3>
-                    <p>Quality roofing solutions for your protection.</p>
+                    <i class="fas fa-road"></i>
+                    <h3>Concrete Work</h3>
+                    <p>Professional driveway renovations and concrete installations.</p>
                 </div>
             </div>
         </div>
@@ -112,24 +112,24 @@
             <h3 class="section-subtitle">Our Projects</h3>
             <div class="projects-grid">
                 <div class="project-card reveal">
-                    <img src="/api/placeholder/400/300" alt="Project 1">
+                    <img src="Bathroom.jpg" alt="Bathroom Renovation">
                     <div class="project-info">
-                        <h3>Modern Home Renovation</h3>
-                        <p>Complete interior and exterior renovation</p>
+                        <h3>Bathroom Renovation</h3>
+                        <a href="#" class="view-image-link">View Image</a>
                     </div>
                 </div>
                 <div class="project-card reveal">
-                    <img src="/api/placeholder/400/300" alt="Project 2">
+                    <img src="Door.jpg" alt="Custom Door Installation">
                     <div class="project-info">
-                        <h3>Landscape Design</h3>
-                        <p>Custom outdoor living space</p>
+                        <h3>Custom Door Work</h3>
+                        <a href="#" class="view-image-link">View Image</a>
                     </div>
                 </div>
                 <div class="project-card reveal">
-                    <img src="/api/placeholder/400/300" alt="Project 3">
+                    <img src="Kitchen.jpg" alt="Kitchen Remodel">
                     <div class="project-info">
-                        <h3>Roofing Excellence</h3>
-                        <p>Commercial roofing project</p>
+                        <h3>Kitchen Remodel</h3>
+                        <a href="#" class="view-image-link">View Image</a>
                     </div>
                 </div>
             </div>
@@ -144,7 +144,7 @@
                 <div class="contact-info reveal">
                     <h3>Get In Touch</h3>
                     <p><i class="fas fa-phone"></i> (647) 961-0104</p>
-                    <p><i class="fas fa-envelope"></i> abrar_motala@hotmail.com</p>
+                    <p><i class="fas fa-envelope"></i> MoBuild@hotmail.com</p>
                     <p><i class="fas fa-map-marker-alt"></i> Pickering, Ontario L1X 0C9</p>
                 </div>
                 
@@ -167,6 +167,13 @@
         </div>
     </footer>
 
+    <!-- Add this right before the closing </body> tag in your index.html -->
+    <div id="lightbox" class="lightbox">
+        <span class="close-lightbox">&times;</span>
+        <img class="lightbox-content" id="lightbox-img">
+        <div id="lightbox-caption"></div>
+    </div>
+    
     <script src="script.js"></script>
 </body>
 </html>
