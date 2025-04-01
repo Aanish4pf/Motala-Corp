@@ -85,12 +85,18 @@ nav.scrolled {
     background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url('Precon.jpg');
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
+    background-attachment: scroll;
     display: flex;
     align-items: center;
     padding-top: 80px; /* Account for the fixed navbar */
     position: relative;
     color: var(--light-color);
+}
+
+@media (max-width: 768px) {
+    .hero {
+        background-attachment: scroll; /* Explicitly change to scroll on mobile */
+    }
 }
 
 .hero-content {
@@ -244,13 +250,6 @@ nav.scrolled {
     .hero-stats {
         grid-template-columns: 1fr;
         gap: 1rem;
-    }
-}
-
-/* Adjustments for hero background in mobile views */
-@media (max-width: 768px) {
-    .hero {
-        background-attachment: scroll; /* Change to scroll to fix mobile issues */
     }
 }
 
