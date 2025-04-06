@@ -798,3 +798,26 @@ footer {
 .view-image-link:hover {
     opacity: 0.8;
 }
+
+/* Social Links in Footer */
+.social-links {
+    margin: 1rem 0;
+}
+
+.social-link {
+    display: inline-flex;
+    align-items: center;
+    color: var(--light-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-size: 1.1rem;
+    gap: 0.5rem;
+}
+
+.social-link:hover {
+    color: var(--primary-color);
+}
+
+.social-link i {
+    font-size: 1.3rem;
+}
