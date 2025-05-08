@@ -802,6 +802,10 @@ footer {
 /* Social Links in Footer */
 .social-links {
     margin: 1rem 0;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
 }
 
 .social-link {
