@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MoBuild Renovations - Construction Excellence</title>
-    <link rel="icon" href="logo.ico" type="image/x-icon">
+    <title>MoBuild - Construction Excellence</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
@@ -29,17 +28,16 @@
     </nav>
 
     <!-- Hero Section -->
-    <!-- Hero Section -->
-<section id="home" class="hero">
-    <div class="hero-content">
-        <h1>Building Your Vision</h1>
-        <p>Excellence in Construction Since 2024</p>
-        <div class="hero-buttons">
-            <a href="#contact" class="cta-button">Get Started</a>
-            <a href="#projects" class="text-link">View Projects</a>
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Building Your Vision</h1>
+            <p>Excellence in Construction Since 2024</p>
+            <div class="hero-buttons">
+                <a href="#contact" class="cta-button">Get Started</a>
+                <a href="#projects" class="text-link">View Projects</a>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <!-- About us Section -->
     <section id="about" class="about">
@@ -150,10 +148,18 @@
                 </div>
                 
                 <div class="contact-form reveal">
-                    <form>
+                    <form action="https://api.web3forms.com/submit" method="POST">
+                        <!-- Replace with your Access Key -->
+                        <input type="hidden" name="access_key" value="ed1331b3-4e9d-404f-9cfe-0456f112eed1">
+                        
+                        <!-- Form Inputs -->
                         <input type="text" name="name" placeholder="Your Name" required>
                         <input type="email" name="email" placeholder="Your Email" required>
                         <textarea name="message" placeholder="Your Message" required></textarea>
+                        
+                        <!-- Honeypot Spam Protection -->
+                        <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+                        
                         <button type="submit" class="cta-button">Send Message</button>
                     </form>
                 </div>
@@ -173,13 +179,6 @@
         </div>
     </footer>
 
-    <!-- Add this right before the closing </body> tag in your index.html -->
-    <div id="lightbox" class="lightbox">
-        <span class="close-lightbox">&times;</span>
-        <img class="lightbox-content" id="lightbox-img">
-        <div id="lightbox-caption"></div>
-    </div>
-    
     <script src="script.js"></script>
 </body>
 </html>

@@ -9,7 +9,7 @@ function initializeAll() {
     initAnimations();
     setupLightbox();
     setupNavigation();
-    handleFormSubmission();
+    // Removed handleFormSubmission() since we're now using Web3Forms
 }
 
 // Reveal animations on scroll
@@ -52,44 +52,38 @@ function revealAbout() {
     }
 }
 
-// Mobile menu toggle
-const mobileMenu = document.querySelector('.mobile-menu');
-const navLinks = document.querySelector('.nav-links');
+// Setup Navigation
+function setupNavigation() {
+    // Mobile menu toggle
+    const mobileMenu = document.querySelector('.mobile-menu');
+    const navLinks = document.querySelector('.nav-links');
 
-mobileMenu.addEventListener('click', () => {
-    navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
-});
-
-// Smooth scroll for navigation links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const section = document.querySelector(this.getAttribute('href'));
-        section.scrollIntoView({ behavior: 'smooth' });
-        
-        // Close mobile menu if open
-        if (window.innerWidth <= 768) {
-            navLinks.style.display = 'none';
-        }
+    mobileMenu?.addEventListener('click', () => {
+        navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
     });
-});
 
-// Form submission handler
-const contactForm = document.querySelector('.contact-form');
-contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    
-    // Here you would typically handle the form submission
-    // For now, we'll just show an alert
-    alert('Thank you for your message! We will get back to you soon.');
-    contactForm.reset();
-});
+    // Smooth scroll for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const section = document.querySelector(this.getAttribute('href'));
+            section.scrollIntoView({ behavior: 'smooth' });
+            
+            // Close mobile menu if open
+            if (window.innerWidth <= 768) {
+                navLinks.style.display = 'none';
+            }
+        });
+    });
+}
 
 // Add parallax effect to hero section
 window.addEventListener('scroll', () => {
     const hero = document.querySelector('.hero');
     const scrolled = window.pageYOffset;
-    hero.style.backgroundPositionY = scrolled * 0.5 + 'px';
+    if (hero) {
+        hero.style.backgroundPositionY = scrolled * 0.5 + 'px';
+    }
 });
 
 // Navbar scroll effect
@@ -109,19 +103,7 @@ function initAnimations() {
     handleNavbarScroll();
 }
 
-// Event listeners
-window.addEventListener('scroll', initAnimations);
-window.addEventListener('load', initAnimations);
-window.addEventListener('scroll', revealSections);
-window.addEventListener('load', revealSections);
-
-// Optional: Refresh animations on window resize
-let resizeTimer;
-window.addEventListener('resize', () => {
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(initAnimations, 250);
-});
-
+// Revealing sections on scroll
 function revealSections() {
     const titleContainers = document.querySelectorAll('.section-title-container');
     const windowHeight = window.innerHeight;
@@ -136,7 +118,7 @@ function revealSections() {
     });
 }
 
-// Add these lines to your script.js file to setup full-screen image viewing
+// Setup for lightbox (image viewer)
 function setupLightbox() {
     const projectImages = document.querySelectorAll('.project-card img');
     const viewLinks = document.querySelectorAll('.view-image-link');
@@ -144,6 +126,8 @@ function setupLightbox() {
     const lightboxImg = document.getElementById('lightbox-img');
     const lightboxCaption = document.getElementById('lightbox-caption');
     const closeLightbox = document.querySelector('.close-lightbox');
+    
+    if (!lightbox) return; // Exit if lightbox elements aren't found
     
     // Function to open lightbox
     function openLightbox(imageSrc, title) {
@@ -214,5 +198,13 @@ function setupLightbox() {
     });
 }
 
-window.addEventListener('DOMContentLoaded', initializeAll);
+// Event listeners
 window.addEventListener('scroll', handleScrollEvents);
+window.addEventListener('load', initializeAll);
+
+// Optional: Refresh animations on window resize
+let resizeTimer;
+window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(initAnimations, 250);
+});
